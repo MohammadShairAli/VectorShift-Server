@@ -50,6 +50,7 @@ def is_dag(nodes: list[PipelineNode], edges: list[PipelineEdge]) -> bool:
 
     return visited_count == len(node_ids)
 
+
 app = FastAPI()
 
 app.add_middleware(
@@ -60,9 +61,13 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
+
 @app.get('/')
 def read_root():
     return {'Ping': 'Pong'}
+
+
+
 
 @app.post('/pipelines/parse')
 def parse_pipeline(pipeline: Pipeline):
